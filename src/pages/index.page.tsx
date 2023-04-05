@@ -48,6 +48,9 @@ const Home = () => {
   ];
 
   const containerStyle = css`
+    width: calc(100% - 80px);
+    min-width: 1024px;
+
     display: flex;
     flex-wrap: wrap;
 
@@ -55,6 +58,8 @@ const Home = () => {
     padding-bottom: 100px;
 
     ${breakPoint.tab} {
+      min-width: unset;
+
       padding-top: 60px;
       padding-bottom: 60px;
     }
@@ -67,8 +72,16 @@ const Home = () => {
   `;
 
   const itemStyle = css`
-    width: 50%;
+    width: 25%;
     border: 1px solid #ccc;
+
+    ${breakPoint.tab} {
+      width: 50%;
+    }
+
+    ${breakPoint.sp} {
+      width: 100%;
+    }
   `;
 
   return (

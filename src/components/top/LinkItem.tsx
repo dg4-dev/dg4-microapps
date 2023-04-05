@@ -20,12 +20,12 @@ export const LinkItem = ({ className, title, description, date, href, imgSrc }: 
 
     gap: 24px;
 
-    padding: 32px;
+    padding: 16px;
     background-color: #f4f4f4;
 
     ${breakPoint.sp} {
       width: 100%;
-      padding: 16px;
+      padding: 8px;
     }
   `;
 
