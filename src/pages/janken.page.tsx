@@ -7,7 +7,7 @@ import Layout from "@/components/Layout";
 import ImageSwitcher from "@/components/janken/ImageSwitcher";
 import { breakPoint } from "@/styles/config";
 
-const Home = () => {
+const Janken = () => {
   const containerStyle = css`
     height: calc(100vh - 70px);
     min-height: 700px;
@@ -131,4 +131,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Janken;
