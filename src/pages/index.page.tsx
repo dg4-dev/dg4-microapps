@@ -11,24 +11,24 @@ const Home = () => {
       title: "いい長方形",
       description: "インスタの過去投稿を並べるのに最適な比率の長方形を見つけるやつ",
       date: "2022/12/20",
-      href: "/instaRect/",
+      href: "/insta-rect/",
       imgSrc: "/images/cover/instaRect.png",
     },
-    {
-      title: "歴史ジェネレーター",
-      description:
-        "フォームを入力すると年表のようなものが作れます。個人的な歴史を書いてもよし、未来の予想を書いてもよし。",
-      date: "2021/10/22",
-      href: "/history/",
-      imgSrc: "/images/cover/history.png",
-    },
-    {
-      title: "辞書風ジェネレーター",
-      description: "フォームを入力すると辞書風の文字列になるだけ。",
-      date: "2021/08/09",
-      href: "/dictionary/",
-      imgSrc: "/images/cover/dictionary.png",
-    },
+    // {
+    //   title: "歴史ジェネレーター",
+    //   description:
+    //     "フォームを入力すると年表のようなものが作れます。個人的な歴史を書いてもよし、未来の予想を書いてもよし。",
+    //   date: "2021/10/22",
+    //   href: "/history/",
+    //   imgSrc: "/images/cover/history.png",
+    // },
+    // {
+    //   title: "辞書風ジェネレーター",
+    //   description: "フォームを入力すると辞書風の文字列になるだけ。",
+    //   date: "2021/08/09",
+    //   href: "/dictionary/",
+    //   imgSrc: "/images/cover/dictionary.png",
+    // },
     {
       title: "謎じゃんけん",
       description:
