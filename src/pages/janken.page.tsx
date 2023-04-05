@@ -100,7 +100,10 @@ const Home = () => {
   };
 
   return (
-    <Layout title="謎じゃんけん" description="">
+    <Layout
+      title="謎じゃんけん"
+      description="ボタンを押すとランダムで「わざわざ話すことでもない話題」が出てきます。\n初対面で話しづらい・仲が良すぎてもう話すことがない といった場面におすすめです！"
+    >
       <Container css={containerStyle}>
         <button id="jankenButton" css={buttonStyle} onClick={onButtonClick}>
           じゃんけん！
