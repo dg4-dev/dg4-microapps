@@ -11,24 +11,24 @@ const Home = () => {
       title: "いい長方形",
       description: "インスタの過去投稿を並べるのに最適な比率の長方形を見つけるやつ",
       date: "2022/12/20",
-      href: "/instaRect/",
+      href: "/insta-rect/",
       imgSrc: "/images/cover/instaRect.png",
     },
-    {
-      title: "歴史ジェネレーター",
-      description:
-        "フォームを入力すると年表のようなものが作れます。個人的な歴史を書いてもよし、未来の予想を書いてもよし。",
-      date: "2021/10/22",
-      href: "/history/",
-      imgSrc: "/images/cover/history.png",
-    },
-    {
-      title: "辞書風ジェネレーター",
-      description: "フォームを入力すると辞書風の文字列になるだけ。",
-      date: "2021/08/09",
-      href: "/dictionary/",
-      imgSrc: "/images/cover/dictionary.png",
-    },
+    // {
+    //   title: "歴史ジェネレーター",
+    //   description:
+    //     "フォームを入力すると年表のようなものが作れます。個人的な歴史を書いてもよし、未来の予想を書いてもよし。",
+    //   date: "2021/10/22",
+    //   href: "/history/",
+    //   imgSrc: "/images/cover/history.png",
+    // },
+    // {
+    //   title: "辞書風ジェネレーター",
+    //   description: "フォームを入力すると辞書風の文字列になるだけ。",
+    //   date: "2021/08/09",
+    //   href: "/dictionary/",
+    //   imgSrc: "/images/cover/dictionary.png",
+    // },
     {
       title: "謎じゃんけん",
       description:
@@ -48,6 +48,9 @@ const Home = () => {
   ];
 
   const containerStyle = css`
+    width: calc(100% - 80px);
+    min-width: 1024px;
+
     display: flex;
     flex-wrap: wrap;
 
@@ -55,6 +58,8 @@ const Home = () => {
     padding-bottom: 100px;
 
     ${breakPoint.tab} {
+      min-width: unset;
+
       padding-top: 60px;
       padding-bottom: 60px;
     }
@@ -67,8 +72,16 @@ const Home = () => {
   `;
 
   const itemStyle = css`
-    width: 50%;
+    width: 25%;
     border: 1px solid #ccc;
+
+    ${breakPoint.tab} {
+      width: 50%;
+    }
+
+    ${breakPoint.sp} {
+      width: 100%;
+    }
   `;
 
   return (

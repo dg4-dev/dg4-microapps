@@ -7,7 +7,7 @@ import Layout from "@/components/Layout";
 import ImageSwitcher from "@/components/janken/ImageSwitcher";
 import { breakPoint } from "@/styles/config";
 
-const Home = () => {
+const Janken = () => {
   const containerStyle = css`
     height: calc(100vh - 70px);
     min-height: 700px;
@@ -100,7 +100,10 @@ const Home = () => {
   };
 
   return (
-    <Layout title="謎じゃんけん" description="">
+    <Layout
+      title="謎じゃんけん"
+      description="ボタンを押すとランダムで「わざわざ話すことでもない話題」が出てきます。\n初対面で話しづらい・仲が良すぎてもう話すことがない といった場面におすすめです！"
+    >
       <Container css={containerStyle}>
         <button id="jankenButton" css={buttonStyle} onClick={onButtonClick}>
           じゃんけん！
@@ -128,4 +131,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Janken;

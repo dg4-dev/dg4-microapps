@@ -1,12 +1,18 @@
+import Link from "next/link";
+
 import type { NextPage } from "next";
 
-import Layout from "@/components/Layout";
+import Footer from "@/components/Footer";
 
 const Works: NextPage = () => {
   return (
-    <Layout title="Page not found" noindex={true}>
-      404
-    </Layout>
+    <>
+      <main>
+        Page Not Found
+        <Link href={"/"}>Top</Link>
+      </main>
+      <Footer />
+    </>
   );
 };
 
