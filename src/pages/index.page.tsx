@@ -3,7 +3,7 @@ import { css } from "@emotion/react";
 import Container from "@/components/Container";
 import Layout from "@/components/Layout";
 import { LinkItem, linkItemProps } from "@/components/top/LinkItem";
-import { breakPoint } from "@/styles/config";
+import { breakPoint, containerWidth } from "@/styles/config";
 
 const Home = () => {
   const linkItems: linkItemProps[] = [
@@ -48,6 +48,7 @@ const Home = () => {
   ];
 
   const containerStyle = css`
+    max-width: ${containerWidth.large};
     width: calc(100% - 80px);
     min-width: 1024px;
 
