@@ -1,19 +1,14 @@
-import Link from "next/link";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
-import type { NextPage } from "next";
+const Custom404 = () => {
+  const router = useRouter();
 
-import Footer from "@/components/Footer";
+  useEffect(() => {
+    router.replace("/");
+  });
 
-const Works: NextPage = () => {
-  return (
-    <>
-      <main>
-        Page Not Found
-        <Link href={"/"}>Top</Link>
-      </main>
-      <Footer />
-    </>
-  );
+  return <></>;
 };
 
-export default Works;
+export default Custom404;
