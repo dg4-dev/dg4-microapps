@@ -2,6 +2,8 @@ import { css } from "@emotion/react";
 import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
 
+import Logo from "./Logo";
+
 import { breakPoint, headerHeight } from "@/styles/config";
 
 const headerStyle = css`
@@ -37,16 +39,15 @@ const navStyle = css`
     font-weight: bold;
 
     padding: 16px;
+    margin: auto 0;
+
+    svg {
+      width: 100px;
+    }
 
     ${breakPoint.sp} {
       padding: 16px 12px;
     }
-  }
-
-  /* 子要素にobjectが含まれる場合のa */
-  a:has(object) {
-    height: auto;
-    width: 100px;
   }
 `;
 
@@ -66,7 +67,7 @@ const Header = ({ title }: headerProps) => {
       <nav css={navStyle}>
         {topLink}
         <a href="https://www.dgdgdgdg.com/" target="_blank" rel="noreferrer noopener">
-          <object data="https://www.dgdgdgdg.com/images/logo.svg" type="image/svg+xml"></object>
+          <Logo />
         </a>
       </nav>
     </header>
