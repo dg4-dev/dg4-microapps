@@ -5,7 +5,7 @@ import Container from "@/components/Container";
 import Layout from "@/components/Layout";
 
 const Dictionary = () => {
-  const [value, setValue] = useState(0);
+  const [, setValue] = useState(0);
   const [result, setResult] = useState(<></>);
 
   const doCalculation = (n: number) => {

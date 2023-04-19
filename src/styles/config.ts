@@ -10,6 +10,7 @@ export const dg4Color: {
 export const headerHeight = "70px";
 
 type containerDevice = {
+  large: string;
   pc: string;
   tab: string;
   sp: string;
@@ -22,6 +23,7 @@ type breakPointDevice = {
 };
 
 export const containerWidth: containerDevice = {
+  large: "1600px",
   pc: "800px",
   tab: "calc(100% - (20px * 2))",
   sp: "calc(100% - (12px * 2))",
