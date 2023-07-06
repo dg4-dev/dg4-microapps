@@ -93,6 +93,21 @@ export default function RandomTripPage() {
     dispatch({ type: "setAmount", payload: randomAmount });
   };
 
+  const citiesGroupStyle = css`
+    width: 100%;
+    display: flex;
+    gap: 20px;
+  `;
+
+  const citiesStyle = css`
+    width: 100%;
+  `;
+
+  const stationsStyle = css`
+    max-height: 200px;
+    overflow-y: scroll;
+  `;
+
   const buttonStyle = css`
     font-size: 16px;
     line-height: 1.4em;
@@ -117,21 +132,25 @@ export default function RandomTripPage() {
       description="ボタン一つでランダムに駅、滞在時間、使用可能金額が提案されます。日常の中に新鮮な驚きを。一緒に未知の世界を探しましょう。"
     >
       <Container>
-        <Autocomplete
-          multiple
-          options={cities}
-          value={state.excludedCities}
-          onChange={(_, value) => dispatch({ type: "setExcludedCities", payload: value })}
-          renderInput={(params) => <TextField {...params} label="含めない市と町" />}
-        />
+        <div css={citiesGroupStyle}>
+          <Autocomplete
+            multiple
+            options={cities}
+            value={state.excludedCities}
+            onChange={(_, value) => dispatch({ type: "setExcludedCities", payload: value })}
+            renderInput={(params) => <TextField {...params} label="含めない市と町" />}
+            css={citiesStyle}
+          />
 
-        <Autocomplete
-          multiple
-          options={cities}
-          value={state.limitedCities}
-          onChange={(_, value) => dispatch({ type: "setLimitedCities", payload: value })}
-          renderInput={(params) => <TextField {...params} label="限定する市と町" />}
-        />
+          <Autocomplete
+            multiple
+            options={cities}
+            value={state.limitedCities}
+            onChange={(_, value) => dispatch({ type: "setLimitedCities", payload: value })}
+            renderInput={(params) => <TextField {...params} label="限定する市と町" />}
+            css={citiesStyle}
+          />
+        </div>
 
         <Autocomplete
           multiple
@@ -139,6 +158,7 @@ export default function RandomTripPage() {
           value={state.excludedStations}
           onChange={(_, value) => dispatch({ type: "setExcludedStations", payload: value })}
           renderInput={(params) => <TextField {...params} label="含めない駅" />}
+          css={stationsStyle}
         />
         <button onClick={handleClick} css={buttonStyle}>
           旅行を生成
