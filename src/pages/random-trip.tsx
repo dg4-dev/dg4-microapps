@@ -86,12 +86,43 @@ export default function RandomTripPage() {
   const handleClick = () => {
     const availableData = data.filter((d) => !state.excludedStations.includes(d.name));
     const randomStation = getRandomElement<Station>(availableData);
-    const randomDuration = Math.floor(Math.random() * 4) + 1;
+    const randomDuration = Math.floor(Math.random() * 8) / 2 + 1;
     const randomAmount = (Math.floor(Math.random() * 4) + 1) * 1000;
     dispatch({ type: "setStation", payload: randomStation });
     dispatch({ type: "setDuration", payload: randomDuration });
     dispatch({ type: "setAmount", payload: randomAmount });
   };
+
+  let cashEmoji = "";
+
+  if (state.amount) {
+    for (let i = 0; i < state.amount / 1000; i++) {
+      cashEmoji += " 💴";
+    }
+  }
+
+  const sectionStyle = css`
+    margin: 32px 0;
+  `;
+
+  const inputSectionStyle = css``;
+
+  const resultSectionStyle = css`
+    background-color: #f3e9be;
+    padding: 16px;
+    border-radius: 20px;
+    box-shadow: 2px 6px 39px 0px #3b31002d;
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      line-height: 1.6em;
+      margin-bottom: 8px;
+    }
+  `;
 
   const citiesGroupStyle = css`
     width: 100%;
@@ -108,80 +139,114 @@ export default function RandomTripPage() {
     overflow-y: scroll;
   `;
 
+  const stationWrapperStyle = css`
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+
+    margin-bottom: 8px;
+
+    p {
+      margin-bottom: 0;
+    }
+  `;
+
   const buttonStyle = css`
-    font-size: 16px;
-    line-height: 1.4em;
+    line-height: 1em;
     display: block;
-    width: fit-content;
-    height: fit-content;
 
     background-color: #388f87;
     color: #fff;
-    padding: 5px 20px;
+    padding: 8px 16px;
     border-radius: 5px;
+    margin-top: 16px;
 
     cursor: pointer;
-    margin-bottom: 30px;
-    margin-right: auto;
-    margin-left: auto;
+  `;
+
+  const directionButtonStyle = css`
+    display: inline-block;
+
+    background-color: #fff;
+    color: #388f87;
+    padding: 6px 14px;
+    border: 2px solid #388f87;
+    margin-top: 0;
   `;
 
   return (
     <Layout
-      title="行先未定"
-      description="ボタン一つでランダムに駅、滞在時間、使用可能金額が提案されます。日常の中に新鮮な驚きを。一緒に未知の世界を探しましょう。"
+      title="行先未定(宮城県)"
+      description="ボタン一つでランダムに駅、滞在時間、使用可能金額が提案されます。日常の中に新鮮な驚きを。未知の世界を探しましょう。"
     >
       <Container>
-        <div css={citiesGroupStyle}>
-          <Autocomplete
-            multiple
-            options={cities}
-            value={state.excludedCities}
-            onChange={(_, value) => dispatch({ type: "setExcludedCities", payload: value })}
-            renderInput={(params) => <TextField {...params} label="含めない市と町" />}
-            css={citiesStyle}
-          />
+        <section css={[sectionStyle, inputSectionStyle]}>
+          <div css={citiesGroupStyle}>
+            <Autocomplete
+              multiple
+              options={cities}
+              value={state.excludedCities}
+              onChange={(_, value) => dispatch({ type: "setExcludedCities", payload: value })}
+              renderInput={(params) => <TextField {...params} label="含めない市と町" />}
+              css={citiesStyle}
+            />
+
+            <Autocomplete
+              multiple
+              options={cities}
+              value={state.limitedCities}
+              onChange={(_, value) => dispatch({ type: "setLimitedCities", payload: value })}
+              renderInput={(params) => <TextField {...params} label="限定する市と町" />}
+              css={citiesStyle}
+            />
+          </div>
 
           <Autocomplete
             multiple
-            options={cities}
-            value={state.limitedCities}
-            onChange={(_, value) => dispatch({ type: "setLimitedCities", payload: value })}
-            renderInput={(params) => <TextField {...params} label="限定する市と町" />}
-            css={citiesStyle}
+            options={stations}
+            value={state.excludedStations}
+            onChange={(_, value) => dispatch({ type: "setExcludedStations", payload: value })}
+            renderInput={(params) => <TextField {...params} label="含めない駅" />}
+            css={stationsStyle}
           />
-        </div>
+          <button onClick={handleClick} css={buttonStyle}>
+            行き先を決める
+          </button>
+        </section>
 
-        <Autocomplete
-          multiple
-          options={stations}
-          value={state.excludedStations}
-          onChange={(_, value) => dispatch({ type: "setExcludedStations", payload: value })}
-          renderInput={(params) => <TextField {...params} label="含めない駅" />}
-          css={stationsStyle}
-        />
-        <button onClick={handleClick} css={buttonStyle}>
-          旅行を生成
-        </button>
-
-        <section>
+        <section css={[sectionStyle, resultSectionStyle]}>
           <h2>降車駅</h2>
           {state.station && (
             <>
-              <p>
-                {state.station.name} ({state.station.city})
-              </p>
+              <div css={stationWrapperStyle}>
+                <p>
+                  {state.station.name} ({state.station.city})
+                </p>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={`https://www.google.com/maps/dir/?api=1&origin=My%20Location&destination=${state.station.name}%20(${state.station.city})&travelmode=transit`}
+                  css={[buttonStyle, directionButtonStyle]}
+                >
+                  🚃 経路を見る
+                </a>
+              </div>
               <p>路線: {state.station.routeInfo.join(", ")}</p>
             </>
           )}
         </section>
-        <section>
+        <section css={[sectionStyle, resultSectionStyle]}>
           <h2>滞在時間</h2>
-          <p>{state.duration} 時間</p>
+          {state.duration && <p>{state.duration} 時間以上</p>}
         </section>
-        <section>
+        <section css={[sectionStyle, resultSectionStyle]}>
           <h2>使用可能金額</h2>
-          <p>{state.amount} 円</p>
+          {state.amount && (
+            <p>
+              {state.amount}円 {cashEmoji}
+            </p>
+          )}
         </section>
       </Container>
     </Layout>

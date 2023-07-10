@@ -45,6 +45,14 @@ const Home = () => {
       href: "/topic/",
       imgSrc: "/images/cover/topic.png",
     },
+    {
+      title: "行先未定(宮城県)",
+      description:
+        "ボタン一つでランダムに駅、滞在時間、使用可能金額が提案されます。日常の中に新鮮な驚きを。未知の世界を探しましょう。",
+      date: "2023/07/10",
+      href: "/random-trip/",
+      imgSrc: "/images/cover/trip.png",
+    },
   ];
 
   const containerStyle = css`
