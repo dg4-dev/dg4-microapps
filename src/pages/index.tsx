@@ -8,6 +8,14 @@ import { breakPoint, containerWidth } from "@/styles/config";
 const Home = () => {
   const linkItems: linkItemProps[] = [
     {
+      title: "行先未定(宮城県)",
+      description:
+        "ボタン一つでランダムに駅、滞在時間、使用可能金額が提案されます。日常の中に新鮮な驚きを。未知の世界を探しましょう。",
+      date: "2023/07/10",
+      href: "/random-trip/",
+      imgSrc: "/images/cover/trip.png",
+    },
+    {
       title: "いい長方形",
       description: "インスタの過去投稿を並べるのに最適な比率の長方形を見つけるやつ",
       date: "2022/12/20",
@@ -44,14 +52,6 @@ const Home = () => {
       date: "2021/07/08",
       href: "/topic/",
       imgSrc: "/images/cover/topic.png",
-    },
-    {
-      title: "行先未定(宮城県)",
-      description:
-        "ボタン一つでランダムに駅、滞在時間、使用可能金額が提案されます。日常の中に新鮮な驚きを。未知の世界を探しましょう。",
-      date: "2023/07/10",
-      href: "/random-trip/",
-      imgSrc: "/images/cover/trip.png",
     },
   ];
 
