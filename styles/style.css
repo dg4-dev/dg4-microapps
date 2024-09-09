@@ -1,0 +1,138 @@
+@font-face {
+  font-family: "Noto Sans JP";
+  font-weight: normal;
+  src: url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap");
+}
+
+@font-face {
+  font-family: "Noto Sans JP";
+  font-weight: bold;
+  src: url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap");
+}
+
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  line-height: 1;
+  color: #444444;
+}
+
+object {
+  pointer-events: none;
+}
+
+main {
+  min-height: calc(100vh - 70px);
+}
+
+* {
+  font-weight: normal;
+}
+
+img {
+  width: 100%;
+  height: auto;
+
+  pointer-events: none;
+}
+
+header {
+  height: 70px;
+  background-color: #f9d858;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 20px;
+
+  position: relative;
+  z-index: 65535;
+
+  @media (max-width: 768px) {
+    height: auto;
+    flex-direction: column;
+    padding: 12px 12px 0 12px;
+    gap: 8px;
+  }
+}
+
+header h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+header nav {
+  display: flex;
+}
+
+header nav a {
+  display: block;
+  font-weight: bold;
+
+  padding: 16px;
+  margin: auto 0;
+}
+
+header nav a img {
+  width: 100px;
+}
+
+.container {
+  max-width: 1024px;
+  width: calc(100% - 80px);
+  margin: 0 auto;
+  padding: 20px;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  @media (max-width: 768px) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}
+
+.container .item {
+  width: 25%;
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  padding: 16px;
+  background-color: #f4f4f4;
+
+  @media (max-width: 1024px) {
+    width: 50%;
+    padding: 8px;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.container .item h2 {
+  background-color: #4b91b6;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 5px;
+}
+
+.container .item .date {
+  color: #777;
+  font-size: 80%;
+}
+
+.container .item .description {
+  line-height: 1.4em;
+}
+
+footer {
+  padding: 16px 0;
+  text-align: center;
+  font-size: 12px;
+}
