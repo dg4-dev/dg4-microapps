@@ -122,9 +122,8 @@ header nav a img {
   border-radius: 5px;
 }
 
-.container .item .date {
-  color: #777;
-  font-size: 80%;
+.container .item .date img {
+  width: unset;
 }
 
 .container .item .description {
